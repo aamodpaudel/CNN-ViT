@@ -4,7 +4,7 @@
 
 ## Overview
 
-**Qualia** is an end-to-end pet sentiment analysis pipeline combining Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to quantitatively decode and model pet emotions from facial images. Inspired by the needs of veterinary care for domestic animals and the conditions of street dogs in south asian cities, our project also aims to remove the necessity of a pet trainer. In this repository, we cover the project details such as:
+**Qualia** is an end-to-end pet sentiment analysis pipeline combining Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to quantitatively decode and model pet emotions from facial images. Inspired by the needs of veterinary care for domestic animals and the conditions of street dogs in south asian cities, our project aims to remove the necessity of a pet trainer in households as well. In this repository, we cover the project details such as:
 
 * **Dataset preparation** (download, augmentation, splitting)
 * **Hybrid architecture** combining local (ResNet-50) and global (ViT) feature extraction
