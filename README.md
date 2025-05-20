@@ -1,10 +1,10 @@
-# Qualia: A Hybrid CNN–ViT Approach for Pet Sentiments and Instincts Analysis
+# Qualia: A Hybrid CNN-ViT Approach for Quantitatively Decoding & Modeling of Pet Sentiments / Instincts from Visual Data
 
 ## Domain: CABA & Computational Animal Psychology 
 
 ## Overview
 
-**Qualia** is an end-to-end pet sentiment analysis pipeline combining Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to quantitatively decode and model pet emotions from facial images. Inspired by the poster **"Qualia: A Hybrid CNN–ViT Approach for Quantitatively Decoding & Modeling of Pet Sentiments,"** this repository covers:
+**Qualia** is an end-to-end pet sentiment analysis pipeline combining Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to quantitatively decode and model pet emotions from facial images. Inspired by the needs of veterinary care for domestic animals and the conditions of street dogs in south asian cities, our project also aims to remove the necessity of a pet trainer. In this repository, we cover the project details such as:
 
 * **Dataset preparation** (download, augmentation, splitting)
 * **Hybrid architecture** combining local (ResNet-50) and global (ViT) feature extraction
@@ -17,8 +17,14 @@ We use the **Oxford-IIIT Pet Dataset** (37 breeds, \~7.3 K images) from the Vi
 
 * **Download**: [Oxford-IIIT Pet Dataset](https://www.robots.ox.ac.uk/~vgg/data/pets/)
 * **Original images**: \~7,368
-* **Augmented images**: \~29,000 (via `scripts/augment.py`)
-* **Split**: 70% train (\~20 K), 15% validation (\~4 K), 15% test (\~4 K)
+* **Augmented images**: \~29,000 (via `utilities/augmentation.py`)
+* **Split**: 70% train (\~20 K), 15% validation (\~4 K), 15% test (\~4 K) (via `utilities/split.py`)
+
+* The original veterinary classified datasets we used for augmentation can be found in this link: [Original Datasets](https://drive.google.com/drive/folders/1DHReaqAtvxzKNFn5YvrJ9AkvDizpwGg7?usp=sharing)
+* The augmented images datasets that was processed to be ready for splitting can be found in this link: [Augmented Datasets](https://drive.google.com/drive/folders/1a6bbYXf-mcMdaAu1hBR83N7OcuKb_TP3?usp=drive_link)
+* The final splitted images datasets that was used for ultimate model training can be found in this link: [Split Datasets](https://drive.google.com/drive/folders/1KtGcq8W4jo8LSuuuilLnmuMu_ibaxss0?usp=drive_link)
+
+**The Google Collab Notebook**: [CNN-ViT Notebook](https://colab.research.google.com/drive/15hD_IoFO7B7PHTO4jiTzLMEuil3SpWWp?usp=drive_link)  
 
 ## Architecture
 
@@ -26,32 +32,14 @@ The model backbone is **ResNet-50** (without its final two layers) that outputs 
 
 Refer to the diagram below for a 3D-style view of the hybrid CNN–ViT flow:
 
-![Hybrid CNN–ViT Architecture](3d-architecture.jpg)
+![Hybrid CNN–ViT Architecture](https://github.com/aamodpaudel/Qualia/blob/main/Visualizations_Generated/3d-architecture.jpg)
 
-## Repository Structure
-
-```
-├── classified_images/         # Raw labeled pet images
-├── augmented_data/            # Augmented images (total ~29 K)
-├── augmented_data_split/      # Splits: train/val/test
-│   ├── train/ (70%)
-│   ├── val/   (15%)
-│   └── test/  (15%)
-├── scripts/
-│   ├── augment.py             # Balance & augment dataset to 7 K per class
-│   ├── split_data.py          # Stratified 70/15/15 split
-│   └── train.py               # Model training & plotting
-├── training_metrics.json      # Epoch-by-epoch metrics
-├── epoch_vs_accuracy.png      # Accuracy curves (embedded below)
-├── epoch_vs_loss.png          # Loss curves
-└── activation_function_gelu.png  # GELU activation plot
-```
 
 ## Installation
 
 ```bash
-git clone https://github.com/<username>/qualia-pet-sentiment.git
-cd qualia-pet-sentiment
+git clone https://github.com/aamodpaudel/Qualia.git
+cd Qualia
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -62,7 +50,7 @@ pip install -r requirements.txt
 ### 1. Data Augmentation
 
 ```bash
-python scripts/augment.py \
+python utilities/augmentation.py \
   --input_dir classified_images \
   --output_dir augmented_data \
   --target_count 7000  # per class
@@ -71,7 +59,7 @@ python scripts/augment.py \
 ### 2. Data Splitting
 
 ```bash
-python scripts/split_data.py \
+python utilities/split.py \
   --input_dir augmented_data \
   --output_dir augmented_data_split
 ```
@@ -79,7 +67,7 @@ python scripts/split_data.py \
 ### 3. Training & Evaluation
 
 ```bash
-python scripts/train.py \
+python train.py \
   --data_dir augmented_data_split \
   --epochs 50 \
   --batch_size 32 \
@@ -90,17 +78,16 @@ python scripts/train.py \
 * Metrics: `training_metrics.json`
 * Plots: `epoch_vs_accuracy.png`, `epoch_vs_loss.png`, `activation_function_gelu.png`
 
-#### Embedding the Epoch vs Accuracy Plot
+#### Generated Epoch vs Accuracy Plot
 
-To embed the accuracy plot in this README, include the following markdown:
 
 ```markdown
 ![Epoch vs Accuracy](epoch_vs_accuracy.png)
 ```
 
-![Epoch vs Accuracy](epoch_vs_accuracy.png)
+![Epoch vs Accuracy](https://github.com/aamodpaudel/Qualia/blob/main/Visualizations_Generated/epoch_vs_accuracy.png)
 
-## Results (Hybrid CNN–ViT)
+## Results (Hybrid CNN–ViT: Qualia)
 
 | Split      | Accuracy |
 | ---------- | -------- |
