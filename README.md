@@ -10,6 +10,8 @@
 * **Hybrid architecture** combining local (ResNet-50) and global (ViT) feature extraction
 * **Training** with mixed-precision, scheduling, and performance tracking
 * **Evaluation** and visualization of results
+* **Model**: In the hybrid CNN-ViT model, we did not use a standard pre-defined ViT model (like vit_b_16). Instead, we built a custom transformer encoder on top of the CNN backbone.
+* **UI**: Streamlit web app for real-time predictions.
 
 ## Datasets
 
