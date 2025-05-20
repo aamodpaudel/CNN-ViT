@@ -1,6 +1,6 @@
 # Qualia: A Hybrid CNN-ViT Approach for Quantitatively Decoding & Modeling of Pet Sentiments / Instincts from Visual Data
 
-## Domain: CABA & Computational Animal Psychology 
+## Domain: CABA (Computational Animal Behavior Analysis) & Animal Psychology 
 
 ## Overview
 
@@ -11,7 +11,7 @@
 * **Training** with mixed-precision, scheduling, and performance tracking
 * **Evaluation** and visualization of results
 * **Model**: In the hybrid CNN-ViT model, we did not use a standard pre-defined ViT model (like vit_b_16). Instead, we built a custom transformer encoder on top of the CNN backbone.
-* **UI**: Streamlit web app for real-time predictions.
+* **UI**: Streamlit web app for real-time predictions, run it on your IDE terminal utilizing local server as "streamlit run app.py" (via `streamlit_maths/app.py`)
 
 ## Datasets
 
