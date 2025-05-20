@@ -1,4 +1,6 @@
-# Qualia: A Hybrid CNN–ViT Approach for Pet Sentiment Analysis
+# Qualia: A Hybrid CNN–ViT Approach for Pet Sentiments and Instincts Analysis
+
+## Domain: CABA & Computational Animal Psychology 
 
 ## Overview
 
