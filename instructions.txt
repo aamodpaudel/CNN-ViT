@@ -1,0 +1,15 @@
+
+To run this training on Google Colab with an A100 GPU, follow these steps:
+1. Mount your Google Drive in Colab:
+       from google.colab import drive
+       drive.mount('/content/drive')
+2. Navigate to your project folder in Colab (e.g., %cd /content/drive/MyDrive/your_project_folder).
+3. Install any necessary dependencies. For example:
+       !pip install torch torchvision matplotlib tqdm
+       !pip install torchviz  
+4. Set the runtime type to GPU (and select the A100 if available).
+5. Run each script in order:
+       !python augmentation.py
+       !python split.py
+       !python train.py
+6. The training progress and generated figures will be saved in your project folder.

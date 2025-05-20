@@ -1,0 +1,14 @@
+Research Papers:
+1. https://repository.aaup.edu/bitstream/123456789/1860/1/An%20Empirical%20Evaluation%20of%20Adapting%20Hybrid%20Parameters%20for%20CNN-based%20Sentiment%20Analysis.pdf
+2. Most important: https://arxiv.org/pdf/2302.03751
+3. https://arxiv.org/pdf/2104.08500
+4. https://arxiv.org/pdf/2110.09057
+
+GitHub repos:
+1. https://github.com/BoyuanJackChen/MiniProject2_VisTrans/tree/main
+2. https://github.com/AlanLeAI/Hybrid-CNN-ViT-For-Image-Recognition?tab=readme-ov-file
+3. https://github.com/robber699/CNN_ViT_for_Image_Classification
+
+2D Valence Arousal Space: 
+Russell, J. A. (1980). A circumplex model of affect. Journal of Personality and Social Psychology, 39(6), 1161–1178. https://doi.org/10.1037/h0077714
+Link: https://www.researchgate.net/publication/235361517_A_Circumplex_Model_of_Affect

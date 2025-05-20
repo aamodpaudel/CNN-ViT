@@ -1,0 +1,49 @@
+How EAR and MAR are calculated in the updated code:
+
+The code uses OpenCV-based image analysis rather than facial landmarks from dlib. Here's how the values are generated:
+
+1. Eye Aspect Ratio (EAR):
+   - The app divides the face into regions and analyzes the upper third for eyes
+   - It applies thresholding to detect eye openness (white pixels in the eye region)
+   - Calculates the ratio of white pixels to total pixels in the eye region
+   - Scales this value (multiplies by 2) to get a better range
+   - Normalizes to ensure values fall between 0-1
+
+2. Mouth Aspect Ratio (MAR):
+   - Analyzes the lower half of the face for mouth
+   - Applies inverse thresholding to detect mouth openness (dark pixels in mouth cavity)
+   - Calculates the ratio of dark pixels to total pixels in the mouth region
+   - Scales this value (multiplies by 3) to get a better range
+   - Normalizes to ensure values fall between 0-1
+
+These are approximations since we're not using precise landmark detection. In a real-world scenario with specific example, the EAR value of 1.000 would indicate maximum eye openness, while the MAR value of 0.575 would indicate a moderately open mouth.
+How (x,y) coordinates are generated from EAR and MAR:
+
+The key steps in the calculation are:
+
+1. Model prediction determines the quadrant:
+   - The CNN-ViT model classifies the image into one of four emotion classes (angry, happy, relaxed, sad)
+   - This classification determines which quadrant the point will be in
+
+2. Normalization to unit circle (ensuring x²+y²=1):
+   python
+   magnitude = math.sqrt(ear**2 + mar**2)
+   x_normalized = ear / magnitude
+   y_normalized = mar / magnitude
+   
+   - This ensures the point falls exactly on the unit circle
+
+3. Applying quadrant signs:
+   - For quadrant 1 (happy): (+x, +y)
+   - For quadrant 2 (angry): (-x, +y)
+   - For quadrant 3 (sad): (-x, -y)
+   - For quadrant 4 (relaxed): (+x, -y)
+
+For example a image with EAR=1.000 and MAR=0.575:
+- Raw magnitude = √(1.000² + 0.575²) = √(1 + 0.330625) = √1.330625 ≈ 1.153
+- Normalized x = 1.000/1.153 ≈ 0.867
+- Normalized y = 0.575/1.153 ≈ 0.499
+
+If the model classified this as sad (quadrant 3), we'd apply negative signs to both:
+- Final coordinates: (-0.87, -0.50)
+
