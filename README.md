@@ -34,14 +34,14 @@ The model backbone is **ResNet-50** (without its final two layers) that outputs 
 
 Refer to the diagram below for a 3D-style view of the hybrid CNN–ViT flow:
 
-![Hybrid CNN–ViT Architecture](https://github.com/aamodpaudel/Qualia/blob/main/Visualizations_Generated/3d-architecture.jpg)
+![Hybrid CNN–ViT Architecture](https://github.com/aamodpaudel/CNN-ViT/blob/main/Visualizations_Generated/3d-architecture.jpg) 
 
 
 ## Installation
 
 ```bash
-git clone https://github.com/aamodpaudel/Qualia.git
-cd Qualia
+git clone https://github.com/aamodpaudel/CNN-ViT.git
+cd CNN-ViT
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -87,9 +87,9 @@ python train.py \
 ![Epoch vs Accuracy](epoch_vs_accuracy.png)
 ```
 
-![Epoch vs Accuracy](https://github.com/aamodpaudel/Qualia/blob/main/Visualizations_Generated/epoch_vs_accuracy.png)
+![Epoch vs Accuracy](https://github.com/aamodpaudel/CNN-ViT/blob/main/Visualizations_Generated/epoch_vs_accuracy.png)
 
-## Results (Hybrid CNN–ViT: Qualia)
+## Results (Hybrid CNN–ViT: combined)
 
 | Split      | Accuracy |
 | ---------- | -------- |
