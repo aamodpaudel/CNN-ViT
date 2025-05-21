@@ -1,10 +1,10 @@
-# Qualia: A Hybrid CNN-ViT Approach for Quantitatively Decoding & Modeling of Pet Sentiments / Instincts from Visual Data
+# Quantitative Decoding & Modeling of Pet Sentiments & Instincts using a Hybrid CNN-ViT Approach on Visual Data
 
 ## Domain: CABA (Computational Animal Behavior Analysis) & Animal Psychology 
 
 ## Overview
 
-**Qualia** is an end-to-end pet sentiment analysis pipeline combining Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to quantitatively decode and model pet emotions from facial images. Inspired by the needs of veterinary care for domestic animals and the condition of street dogs in South-Asian cities, our project aims to remove the necessity of a pet trainer in households as well. In this repository, we cover the project details such as:
+We developed an end-to-end pet sentiment analysis pipeline combining Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) to quantitatively decode and model pet emotions from facial images. Inspired by the needs of veterinary care for domestic animals and the condition of street dogs in South-Asian cities, our project aims to remove the necessity of a pet trainer in households as well. In this repository, we cover the project details such as:
 
 * **Dataset preparation** (download, augmentation, splitting)
 * **Hybrid architecture** combining local (ResNet-50) and global (ViT) feature extraction
